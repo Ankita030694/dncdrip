@@ -4,22 +4,22 @@ import React from 'react';
 import Image from 'next/image';
 
 const clientLogos = [
-  "/clientlogo/88F8482F-C350-44A7-940E-386058BB49C9-removebg-preview 1.png",
-  "/clientlogo/Asset_1_2x_1-removebg-preview 1.png",
-  "/clientlogo/cropped-Black_and_White_Simple_Business_QR_Code_Square_Sticker__1_-removebg-preview-removebg-preview 1.png",
-  "/clientlogo/foire_logo_1_-01-removebg-preview 1.png",
-  "/clientlogo/image_url__2Ftrans-removebg-preview 1.png",
-  "/clientlogo/KM-gradient-logo-300x300-1__2_-removebg-preview 1.png",
-  "/clientlogo/Logo_Lockup__1_-removebg-preview 1.png",
-  "/clientlogo/Logo_Primary_Logo 1.png",
-  "/clientlogo/logo-png-2-removebg-preview 1.png",
-  "/clientlogo/mama_jama_logo_2__page-0001-removebg-preview (1) 1.png",
-  "/clientlogo/Photoroom_20250407_110636__1_-removebg-preview 1.png",
-  "/clientlogo/Red_w_transparent_bg_1-removebg-preview 1.png",
-  "/clientlogo/transparent-D0veniAb__1_-removebg-preview 1.png",
-  "/clientlogo/V8j2cZmgnw2QfyRrLoMDfxJsu64-removebg-preview 1.png",
-  "/clientlogo/WhatsApp_Image_2025-09-30_at_10.44.53_c9d9cf5d-removebg-preview 1.png",
-  "/clientlogo/WhatsApp-Image-2022-08-04-at-1.16.15-AM-1-4-removebg-preview 1.png"
+  "/clientlogo/88F8482F-C350-44A7-940E-386058BB49C9-removebg-preview-1.png",
+  "/clientlogo/Asset_1_2x_1-removebg-preview-1.png",
+  "/clientlogo/cropped-Black_and_White_Simple_Business_QR_Code_Square_Sticker__1_-removebg-preview-removebg-preview-1.png",
+  "/clientlogo/foire_logo_1_-01-removebg-preview-1.png",
+  "/clientlogo/image_url__2Ftrans-removebg-preview-1.png",
+  "/clientlogo/KM-gradient-logo-300x300-1__2_-removebg-preview-1.png",
+  "/clientlogo/Logo_Lockup__1_-removebg-preview-1.png",
+  "/clientlogo/Logo_Primary_Logo-1.png",
+  "/clientlogo/logo-png-2-removebg-preview-1.png",
+  "/clientlogo/mama_jama_logo_2__page-0001-removebg-preview-(1)-1.png",
+  "/clientlogo/Photoroom_20250407_110636__1_-removebg-preview-1.png",
+  "/clientlogo/Red_w_transparent_bg_1-removebg-preview-1.png",
+  "/clientlogo/transparent-D0veniAb__1_-removebg-preview-1.png",
+  "/clientlogo/V8j2cZmgnw2QfyRrLoMDfxJsu64-removebg-preview-1.png",
+  "/clientlogo/WhatsApp_Image_2025-09-30_at_10.44.53_c9d9cf5d-removebg-preview-1.png",
+  "/clientlogo/WhatsApp-Image-2022-08-04-at-1.16.15-AM-1-4-removebg-preview-1.png"
 ];
 
 export const Clients = () => {
