@@ -4,21 +4,21 @@ import React, { useMemo } from 'react';
 import Image from 'next/image';
 
 const techStack = [
-  { name: 'MongoDB', src: '/techlogo/MongoDB 1.png', color: '#47A248' },
-  { name: 'Framer', src: '/techlogo/fQMob2FoUa+cAEv04jD9MWQ+P+zDQnTXbf0Ce5LG2CKr+lcUwZZmgM5bq0kpJuIEsTqJXLfWluWGeyFpzDdWDtZX6kB5ccxaMBGHKncs30PuRmMQFTMxhYzddiAibX3ykMT5ScQaYCir7zKmMmDScrZnj+D6z+SWcLi940AAAAAElFTkSuQmCC-removebg-preview 1.png', color: '#0055FF' },
-  { name: 'React', src: '/techlogo/React 1.png', color: '#61DAFB' },
-  { name: 'Cloudflare', src: '/techlogo/Cloudflare 1.png', color: '#F38020' },
-  { name: 'Tailwind', src: '/techlogo/Tailwind CSS 1.png', color: '#06B6D4' },
-  { name: 'Shopify', src: '/techlogo/Shopify 1.png', color: '#96BF48' },
-  { name: 'Node.js', src: '/techlogo/Node.js 1.png', color: '#339933' },
-  { name: 'MySQL', src: '/techlogo/mMPFPpGk7sIAAAAASUVORK5CYII_-removebg-preview 1.png', color: '#4479A1' },
-  { name: 'Flutter', src: '/techlogo/Flutter 1.png', color: '#02569B' },
-  { name: 'JavaScript', src: '/techlogo/JavaScript 1.png', color: '#F7DF1E' },
-  { name: 'Figma', src: '/techlogo/Figma 1.png', color: '#F24E1E' },
-  { name: 'Waves', src: '/techlogo/tailwind-removebg-preview 1.png', color: '#38BDF8' },
-  { name: 'Firebase', src: '/techlogo/Rpg4R913R9kAAAAASUVORK5CYII_-removebg-preview 1.png', color: '#FFCA28' },
-  { name: 'WordPress', src: '/techlogo/Z-removebg-preview (1) 1.png', color: '#21759B' },
-  { name: 'Next.js', src: '/techlogo/Next.js 1.png', color: '#000000' },
+  { name: 'MongoDB', src: '/techlogo/6.png', color: '#47A248' },
+  { name: 'Framer', src: '/techlogo/14.png', color: '#0055FF' },
+  { name: 'React', src: '/techlogo/9.png', color: '#61DAFB' },
+  { name: 'Cloudflare', src: '/techlogo/2.png', color: '#F38020' },
+  { name: 'Tailwind', src: '/techlogo/12.png', color: '#06B6D4' },
+  { name: 'Shopify', src: '/techlogo/11.png', color: '#96BF48' },
+  { name: 'Node.js', src: '/techlogo/8.png', color: '#339933' },
+  { name: 'MySQL', src: '/techlogo/15.png', color: '#4479A1' },
+  { name: 'Flutter', src: '/techlogo/4.png', color: '#02569B' },
+  { name: 'JavaScript', src: '/techlogo/5.png', color: '#F7DF1E' },
+  { name: 'Figma', src: '/techlogo/3.png', color: '#F24E1E' },
+  { name: 'Waves', src: '/techlogo/16.png', color: '#38BDF8' },
+  { name: 'Firebase', src: '/techlogo/10.png', color: '#FFCA28' },
+  { name: 'WordPress', src: '/techlogo/13.png', color: '#21759B' },
+  { name: 'Next.js', src: '/techlogo/7.png', color: '#000000' },
 ];
 
 const GRID_SIZE = 20; // 20x20 grid
@@ -112,7 +112,7 @@ export const TechStack = () => {
 
              <div className="relative w-full h-full flex items-center justify-center z-10">
                <Image
-                 src="/techlogo/AWS 1.png"
+                 src="/techlogo/1.png"
                  alt="AWS"
                  width={100}
                  height={100}
@@ -133,7 +133,7 @@ export const TechStack = () => {
 
              <div className="relative w-full h-full flex items-center justify-center z-10">
                <Image
-                 src="/techlogo/AWS 1.png"
+                 src="/techlogo/1.png"
                  alt="AWS"
                  width={80}
                  height={80}
