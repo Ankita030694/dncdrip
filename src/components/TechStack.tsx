@@ -94,7 +94,7 @@ export const TechStack = () => {
                 <br />
                 <span className="flex items-center">
                   LOVE
-                  <Image src="/pixelheart.png" alt="Heart" width={100} height={100} className="object-contain opacity-100 grayscale-0 rotate-40 -ml-4 md:-ml-7 w-16 h-16 md:w-[120px] md:h-[120px]" />
+                  <Image src="/pixelheart.png" alt="Heart" width={100} height={100} className="object-contain opacity-100 grayscale-0 rotate-40 -ml-4 md:-ml-7 w-16 h-16 md:w-[120px] md:h-[120px]" unoptimized />
                 </span>
               </h2>
             </div>
@@ -117,6 +117,7 @@ export const TechStack = () => {
                  width={100}
                  height={100}
                  className="object-contain opacity-100 grayscale-0 transition-transform duration-300 group-hover:scale-110"
+                 unoptimized
                />
              </div>
           </div>
@@ -138,6 +139,7 @@ export const TechStack = () => {
                  width={80}
                  height={80}
                  className="object-contain opacity-100 grayscale-0 transition-transform duration-300 group-hover:scale-110"
+                 unoptimized
                />
              </div>
           </div>
@@ -163,6 +165,7 @@ export const TechStack = () => {
                   width={130}
                   height={130}
                   className="object-contain opacity-100 grayscale-0 transition-transform duration-300 group-hover:scale-110"
+                  unoptimized
                 />
               </div>
             </div>

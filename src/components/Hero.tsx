@@ -36,6 +36,7 @@ export const Hero = () => {
               width={400} 
               height={400}
               className="w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 object-contain transform hover:scale-110 transition-transform duration-300 drop-shadow-2xl"
+              unoptimized
             />
           </div>
         </div>
