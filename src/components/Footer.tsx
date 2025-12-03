@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { FaInstagram, FaLinkedinIn, FaTwitter, FaWhatsapp, FaFacebookF, FaPhone } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
@@ -74,6 +74,44 @@ const SocialLink = ({
 };
 
 export const Footer = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    contact: '',
+    project: '',
+    serviceType: 'Website',
+    timeline: '',
+    details: ''
+  });
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async () => {
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setStatus('success');
+        setFormData({ name: '', contact: '', project: '', serviceType: 'Website', timeline: '', details: '' });
+        alert('Message sent successfully!');
+      } else {
+        setStatus('error');
+        alert('Failed to send message.');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+      alert('An error occurred.');
+    }
+  };
+
   return (
     <footer className="w-full min-h-screen bg-background text-foreground relative flex flex-col overflow-hidden pt-16 md:pt-24 pb-0">
       
@@ -127,22 +165,28 @@ export const Footer = () => {
               <p className="mb-8">Hi Designncode Team,</p>
               
               <p className="mb-4 leading-loose">
-                I, <input type="text" placeholder="your name here" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-40 text-center placeholder:text-foreground/40" /> want help kicking off a project. you can reach via <span className="inline-block text-foreground/60">{'{ Phone / Email }'}</span> at <input type="text" placeholder="_ _ _ _ _ _ _ _" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-48 text-center placeholder:text-foreground/40" />
+                I, <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="your name here" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-40 text-center placeholder:text-foreground/40" /> want help kicking off a project. you can reach via <span className="inline-block text-foreground/60">{'{ Phone / Email }'}</span> at <input type="text" name="contact" value={formData.contact} onChange={handleChange} placeholder="_ _ _ _ _ _ _ _" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-48 text-center placeholder:text-foreground/40" />
               </p>
 
               <p className="mb-4 leading-loose">
-                My business or project is called <input type="text" placeholder="Project name" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-48 text-center placeholder:text-foreground/40" /> .
-                I'm looking for <span className="inline-block text-foreground/60">{'{ Website / E-commerce / UI }'}</span> and I'm aiming to launch by <input type="text" placeholder="Weeks" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-32 text-center placeholder:text-foreground/40" /> .
+                My business or project is called <input type="text" name="project" value={formData.project} onChange={handleChange} placeholder="Project name" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-48 text-center placeholder:text-foreground/40" /> .
+                I'm looking for 
+                <select name="serviceType" value={formData.serviceType} onChange={handleChange} className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none text-center text-foreground mx-2 cursor-pointer appearance-none">
+                  <option value="Website">Website</option>
+                  <option value="E-commerce">E-commerce</option>
+                  <option value="UI">UI</option>
+                </select>
+                and I'm aiming to launch by <input type="text" name="timeline" value={formData.timeline} onChange={handleChange} placeholder="Weeks" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-32 text-center placeholder:text-foreground/40" /> .
               </p>
 
               <p className="mb-8 leading-loose">
-                And here's more about what i have in mind <input type="text" placeholder="Anything else _ _ _ _ _ _ _ _ _ _ _" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-full max-w-md text-left placeholder:text-foreground/40" /> .
+                And here's more about what i have in mind <input type="text" name="details" value={formData.details} onChange={handleChange} placeholder="Anything else _ _ _ _ _ _ _ _ _ _ _" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-full max-w-md text-left placeholder:text-foreground/40" /> .
               </p>
 
               <p className="mb-12">Cheers,</p>
 
-              <button className="bg-foreground text-background px-8 py-3 rounded-full text-sm md:text-base font-bold flex items-center gap-3 hover:opacity-90 transition-opacity w-fit">
-                LET'S TALK <div className="w-2 h-2 bg-background rounded-full"></div>
+              <button onClick={handleSubmit} disabled={status === 'sending'} className="bg-foreground text-background px-8 py-3 rounded-full text-sm md:text-base font-bold flex items-center gap-3 hover:opacity-90 transition-opacity w-fit disabled:opacity-50">
+                {status === 'sending' ? 'SENDING...' : "LET'S TALK"} <div className="w-2 h-2 bg-background rounded-full"></div>
               </button>
             </div>
           </div>
