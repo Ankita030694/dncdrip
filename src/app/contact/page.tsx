@@ -59,6 +59,7 @@ export default function ContactPage() {
                   alt="Superpower"
                   fill
                   className="object-contain"
+                  unoptimized
                 />
               </div>
             </div>

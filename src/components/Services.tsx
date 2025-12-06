@@ -57,6 +57,7 @@ export const Services = () => {
                 alt="Superpower"
                 fill
                 className="object-contain"
+                unoptimized
               />
             </div>
           </div>
