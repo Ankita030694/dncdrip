@@ -16,16 +16,16 @@ const FlipText = ({ children }: { children: React.ReactNode }) => {
 
 export const Hero = () => {
   return (
-    <div className="relative w-full h-screen flex flex-col items-center justify-center z-10 px-4 pointer-events-none">
+    <div className="relative w-full h-[85vh] md:h-screen flex flex-col items-center justify-center z-10 px-4 pointer-events-none">
       <div className="flex flex-col items-start transition-transform gap-3 md:gap-6 -mt-25 w-full md:w-auto">
         {/* Line 1 */}
-        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-foreground transition-colors duration-300">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground transition-colors duration-300">
           WE TURN "HMM"
         </h1>
         
         {/* Line 2 */}
         <div className="flex items-center relative w-full md:w-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-foreground whitespace-normal md:whitespace-nowrap leading-[1.1] md:leading-[1.25] transition-colors duration-300 max-w-[80vw] md:max-w-none">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground whitespace-normal md:whitespace-nowrap leading-[1.1] md:leading-[1.25] transition-colors duration-300 max-w-[80vw] md:max-w-none">
             WEBSITES INTO “DAMN,
           </h1>
           {/* Laptop Image */}
@@ -43,7 +43,7 @@ export const Hero = () => {
 
         {/* Line 3 */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-6 md:gap-12">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-foreground transition-colors duration-300">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground transition-colors duration-300">
             THAT’S COOL
           </h1>
           

@@ -50,7 +50,7 @@ export default function ContactPage() {
         <div className="px-6 md:px-24 mb-16">
            <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
-              <h2 className="text-4xl md:text-7xl font-bold tracking-tighter">
+              <h2 className="text-4xl md:text-7xl font-bold tracking-tight">
                 What We Do
               </h2>
               <div className="relative w-16 h-16 md:w-24 md:h-24 -ml-2 md:-ml-4 -mt-2">

@@ -130,10 +130,10 @@ export const Footer = () => {
 
             {/* Main Heading */}
             <div className="flex flex-col mb-12 lg:mb-auto items-end">
-              <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-bold tracking-tighter leading-[0.9] pr-12 md:pr-24 lg:pr-32">
+              <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-bold tracking-tight leading-[0.9] pr-12 md:pr-24 lg:pr-32">
                 LET'S GET
               </h2>
-              <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-bold tracking-tighter leading-[0.9]">
+              <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-bold tracking-tight leading-[0.9]">
                 IN TOUCH
               </h2>
             </div>
@@ -197,7 +197,7 @@ export const Footer = () => {
       <div className="w-full relative mt-auto overflow-hidden">
         <div className="w-full text-center">
           <h1 
-            className="text-[19vw] leading-none font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/20 select-none whitespace-nowrap transition-all duration-300"
+            className="text-[19vw] leading-none font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/20 dark:to-foreground/5 select-none whitespace-nowrap transition-all duration-300"
             style={{ transform: 'translateY(15%)' }}
           >
             DESIGNNCODE

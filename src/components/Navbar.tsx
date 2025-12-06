@@ -57,20 +57,14 @@ export const Navbar = () => {
 
       {/* Desktop Links Section */}
       <div className="pointer-events-auto hidden md:flex items-center gap-8 md:gap-12">
-        <FlipLink href="/team" className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
-          TEAM
+        <FlipLink href="#tech-stack" className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
+          TECH STACK
         </FlipLink>
-        <FlipLink href="/work" className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
-          WORK
+        <FlipLink href="#clients" className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
+          OUR CLIENTS
         </FlipLink>
-        <FlipLink href="/contact" className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
-          CONTACT
-        </FlipLink>
-        <FlipLink 
-          href="https://wa.me/" 
-          className="text-[#6ADC01] text-lg md:text-2xl tracking-wide font-medium"
-        >
-          WHATSAPP
+        <FlipLink href="#services" className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
+          WHAT WE DO
         </FlipLink>
 
         {/* Theme Toggle Button */}
@@ -120,32 +114,25 @@ export const Navbar = () => {
         }`}
       >
         <Link 
-          href="/team" 
+          href="#tech-stack" 
           className="text-foreground text-3xl font-medium tracking-wide"
           onClick={() => setIsMobileMenuOpen(false)}
         >
-          TEAM
+          TECH STACK
         </Link>
         <Link 
-          href="/work" 
+          href="#clients" 
           className="text-foreground text-3xl font-medium tracking-wide"
           onClick={() => setIsMobileMenuOpen(false)}
         >
-          WORK
+          OUR CLIENTS
         </Link>
         <Link 
-          href="/contact" 
+          href="#services" 
           className="text-foreground text-3xl font-medium tracking-wide"
           onClick={() => setIsMobileMenuOpen(false)}
         >
-          CONTACT
-        </Link>
-        <Link 
-          href="https://wa.me/" 
-          className="text-[#6ADC01] text-3xl font-medium tracking-wide"
-          onClick={() => setIsMobileMenuOpen(false)}
-        >
-          WHATSAPP
+          WHAT WE DO
         </Link>
       </div>
     </nav>
