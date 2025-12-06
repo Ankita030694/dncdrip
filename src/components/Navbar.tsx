@@ -24,9 +24,18 @@ export const Navbar = () => {
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const [scrolled, setScrolled] = useState(false);
+
   // Avoid hydration mismatch
   useEffect(() => {
     setMounted(true);
+    
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleTheme = () => {
@@ -34,7 +43,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-24 py-6 flex justify-between items-center pointer-events-none">
+    <nav className={`fixed top-0 left-0 w-full z-50 px-6 md:px-24 py-6 flex justify-between items-center pointer-events-none transition-all duration-500 ${scrolled ? 'bg-white/10 dark:bg-black/10 backdrop-blur-md' : 'bg-transparent'}`}>
       {/* Logo Section - Pointer events auto to allow interaction if needed, though it's just a logo */}
       <div className="pointer-events-auto relative p-1 border border-foreground/20 group transition-colors duration-300 z-50">
         {/* The 8 squares on the border */}

@@ -99,7 +99,7 @@ export const TechStack = () => {
            
             {/* Main Heading */}
             <div className="mt-auto">
-              <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-bold tracking-tight leading-[0.9]">
+              <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-medium tracking-tight leading-[0.9]">
                 TECH STACK WE
                 <br />
                 <span className="flex items-center">
