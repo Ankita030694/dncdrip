@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 
@@ -45,23 +46,19 @@ export const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 px-6 md:px-24 py-6 flex justify-between items-center pointer-events-none transition-all duration-500 ${scrolled ? 'bg-white/10 dark:bg-black/10 backdrop-blur-md' : 'bg-transparent'}`}>
       {/* Logo Section - Pointer events auto to allow interaction if needed, though it's just a logo */}
-      <div className="pointer-events-auto relative p-1 border border-foreground/20 group transition-colors duration-300 z-50">
+      <div className="pointer-events-auto relative p-1 group transition-colors duration-300 z-50">
         {/* The 8 squares on the border */}
-        {/* Corners */}
-        <div className="absolute -top-1 -left-1 w-2 h-2 bg-transparent border border-foreground/70 transition-colors duration-300" />
-        <div className="absolute -top-1 -right-1 w-2 h-2 bg-transparent border border-foreground/70 transition-colors duration-300" />
-        <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-transparent border border-foreground/70 transition-colors duration-300" />
-        <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-transparent border border-foreground/70 transition-colors duration-300" />
-        
-        {/* Middles */}
-        <div className="absolute top-1/2 -left-1 w-2 h-2 bg-transparent border border-foreground/70 -translate-y-1/2 transition-colors duration-300" />
-        <div className="absolute top-1/2 -right-1 w-2 h-2 bg-transparent border border-foreground/70 -translate-y-1/2 transition-colors duration-300" />
-        <div className="absolute -top-1 left-1/2 w-2 h-2 bg-transparent border border-foreground/70 -translate-x-1/2 transition-colors duration-300" />
-        <div className="absolute -bottom-1 left-1/2 w-2 h-2 bg-transparent border border-foreground/70 -translate-x-1/2 transition-colors duration-300" />
-
-        <span className="text-xl md:text-4xl text-foreground font-bold tracking-wider px-2 block transition-colors duration-300">
-          DESIGNNCODE
-        </span>
+       
+        <div className="relative px-2 py-1">
+          <Image 
+            src="/dnc-logo.png" 
+            alt="DESIGNNCODE" 
+            width={200} 
+            height={60} 
+            className="h-12 md:h-18 w-auto transition-colors duration-300 -mt-2"
+            priority
+          />
+        </div>
       </div>
 
       {/* Desktop Links Section */}
