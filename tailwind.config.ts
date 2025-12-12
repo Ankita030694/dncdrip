@@ -12,6 +12,7 @@ const config: Config = {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
+                borderColor: "var(--border-color)",
             },
             fontFamily: {
                 sans: ["var(--font-anton)"],

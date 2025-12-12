@@ -94,7 +94,7 @@ export const Services = () => {
           {services.map((service) => (
             <div 
               key={service.id}
-              className="min-w-full snap-center p-8 flex flex-col gap-6 min-h-[320px] bg-[var(--card-bg)] transition-colors duration-300 border border-foreground/10"
+              className="min-w-full snap-center p-8 flex flex-col gap-6 min-h-[320px] bg-[var(--card-bg)] transition-colors duration-300 border border-borderColor/10"
             >
               <div className="text-foreground text-4xl font-bold transition-colors duration-300">
                 {service.id}

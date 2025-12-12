@@ -119,7 +119,7 @@ export const Footer = () => {
         <div className="flex flex-col lg:flex-row h-full">
           
           {/* LEFT COLUMN */}
-          <div className="w-full lg:w-1/2 flex flex-col justify-between lg:pr-12 border-r-0 lg:border-r border-foreground/20 items-end text-right">
+          <div className="w-full lg:w-1/2 flex flex-col justify-between lg:pr-12 border-r-0 lg:border-r border-borderColor/20 items-end text-right">
             
             {/* Section Header */}
             <div className="mb-12 w-full text-left">
@@ -143,17 +143,17 @@ export const Footer = () => {
               <div className="grid grid-cols-3 w-fit">
                  {/* Row 1 */}
                  <div className="w-20 h-20 md:w-24 md:h-24"></div>
-                 <SocialLink href="https://instagram.com" icon={FaInstagram} color="#E1306C" className="border border-foreground/20" />
-                 <SocialLink href="#" icon={FaLinkedinIn} color="#0077B5" className="border-t border-r border-b border-foreground/20" />
+                 <SocialLink href="https://instagram.com" icon={FaInstagram} color="#E1306C" className="border border-borderColor/20" />
+                 <SocialLink href="#" icon={FaLinkedinIn} color="#0077B5" className="border-t border-r border-b border-borderColor/20" />
 
                  {/* Row 2 */}
-                 <SocialLink href="#" icon={FaTwitter} color="#1DA1F2" className="border border-foreground/20" />
-                 <SocialLink href="mailto:hello@designncode.com" icon={FiMail} color="#EA4335" className="border-r border-b border-foreground/20" />
-                 <SocialLink href="#" icon={FaWhatsapp} color="#25D366" className="border-r border-b border-foreground/20" />
+                 <SocialLink href="#" icon={FaTwitter} color="#1DA1F2" className="border border-borderColor/20" />
+                 <SocialLink href="mailto:hello@designncode.com" icon={FiMail} color="#EA4335" className="border-r border-b border-borderColor/20" />
+                 <SocialLink href="#" icon={FaWhatsapp} color="#25D366" className="border-r border-b border-borderColor/20" />
 
                  {/* Row 3 */}
-                 <SocialLink href="tel:+1234567890" icon={FaPhone} color="#333333" className="border-l border-r border-b border-foreground/20" iconClassName="rotate-90" />
-                 <SocialLink href="#" icon={FaFacebookF} color="#1877F2" className="border-r border-b border-foreground/20" />
+                 <SocialLink href="tel:+1234567890" icon={FaPhone} color="#333333" className="border-l border-r border-b border-borderColor/20" iconClassName="rotate-90" />
+                 <SocialLink href="#" icon={FaFacebookF} color="#1877F2" className="border-r border-b border-borderColor/20" />
                  <div className="w-20 h-20 md:w-24 md:h-24"></div>
               </div>
             </div>
@@ -165,22 +165,22 @@ export const Footer = () => {
               <p className="mb-8">Hi Designncode Team,</p>
               
               <p className="mb-4 leading-loose">
-                I, <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="your name here" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-40 text-center placeholder:text-foreground/40" /> want help kicking off a project. you can reach via <span className="inline-block text-foreground/60">{'{ Phone / Email }'}</span> at <input type="text" name="contact" value={formData.contact} onChange={handleChange} placeholder="_ _ _ _ _ _ _ _" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-48 text-center placeholder:text-foreground/40" />
+                I, <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="your name here" className="bg-transparent border-b border-borderColor/30 focus:border-borderColor outline-none w-40 text-center placeholder:text-foreground/40" /> want help kicking off a project. you can reach via <span className="inline-block text-foreground/60">{'{ Phone / Email }'}</span> at <input type="text" name="contact" value={formData.contact} onChange={handleChange} placeholder="_ _ _ _ _ _ _ _" className="bg-transparent border-b border-borderColor/30 focus:border-borderColor outline-none w-48 text-center placeholder:text-foreground/40" />
               </p>
 
               <p className="mb-4 leading-loose">
-                My business or project is called <input type="text" name="project" value={formData.project} onChange={handleChange} placeholder="Project name" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-48 text-center placeholder:text-foreground/40" /> .
+                My business or project is called <input type="text" name="project" value={formData.project} onChange={handleChange} placeholder="Project name" className="bg-transparent border-b border-borderColor/30 focus:border-borderColor outline-none w-48 text-center placeholder:text-foreground/40" /> .
                 I'm looking for 
-                <select name="serviceType" value={formData.serviceType} onChange={handleChange} className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none text-center text-foreground mx-2 cursor-pointer appearance-none">
+                <select name="serviceType" value={formData.serviceType} onChange={handleChange} className="bg-transparent border-b border-borderColor/30 focus:border-borderColor outline-none text-center text-foreground mx-2 cursor-pointer appearance-none">
                   <option value="Website">Website</option>
                   <option value="E-commerce">E-commerce</option>
                   <option value="UI">UI</option>
                 </select>
-                and I'm aiming to launch by <input type="text" name="timeline" value={formData.timeline} onChange={handleChange} placeholder="Weeks" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-32 text-center placeholder:text-foreground/40" /> .
+                and I'm aiming to launch by <input type="text" name="timeline" value={formData.timeline} onChange={handleChange} placeholder="Weeks" className="bg-transparent border-b border-borderColor/30 focus:border-borderColor outline-none w-32 text-center placeholder:text-foreground/40" /> .
               </p>
 
               <p className="mb-8 leading-loose">
-                And here's more about what i have in mind <input type="text" name="details" value={formData.details} onChange={handleChange} placeholder="Anything else _ _ _ _ _ _ _ _ _ _ _" className="bg-transparent border-b border-foreground/30 focus:border-foreground outline-none w-full max-w-md text-left placeholder:text-foreground/40" /> .
+                And here's more about what i have in mind <input type="text" name="details" value={formData.details} onChange={handleChange} placeholder="Anything else _ _ _ _ _ _ _ _ _ _ _" className="bg-transparent border-b border-borderColor/30 focus:border-borderColor outline-none w-full max-w-md text-left placeholder:text-foreground/40" /> .
               </p>
 
               <p className="mb-12">Cheers,</p>

@@ -70,7 +70,7 @@ const SquareCorner = ({ position }: { position: 'tl' | 'tr' | 'bl' | 'br' }) => 
     br: "-bottom-1 -right-1",
   };
   return (
-    <div className={`absolute ${styles[position]} w-2 h-2 bg-transparent border border-foreground/40 z-20 transition-colors duration-300`} />
+    <div className={`absolute ${styles[position]} w-2 h-2 bg-transparent border border-borderColor/40 z-20 transition-colors duration-300`} />
   );
 };
 
@@ -95,7 +95,7 @@ export const TechStack = () => {
         <div className="hidden md:grid grid-cols-5 relative">
           
           {/* Header Section - Spans 4 columns on desktop */}
-          <div className="col-span-4 p-12 border-r border-b border-foreground/30 relative min-h-[200px] flex flex-col justify-between group transition-colors duration-300">
+          <div className="col-span-4 p-12 border-r border-b border-borderColor/30 relative min-h-[200px] flex flex-col justify-between group transition-colors duration-300">
            
             {/* Main Heading */}
             <div className="mt-auto">
@@ -111,7 +111,7 @@ export const TechStack = () => {
           </div>
 
           {/* AWS Tile - Top Right */}
-          <div className="col-span-1 border-r border-b border-t border-foreground/30 flex items-center justify-center p-4 aspect-square relative group overflow-hidden transition-colors duration-300">
+          <div className="col-span-1 border-r border-b border-t border-borderColor/30 flex items-center justify-center p-4 aspect-square relative group overflow-hidden transition-colors duration-300">
              {/* Corners */}
              <SquareCorner position="tl" />
              <SquareCorner position="tr" />
@@ -134,7 +134,7 @@ export const TechStack = () => {
           {techStack.map((tech, index) => (
             <div 
               key={tech.name} 
-              className={`col-span-1 border-r border-b border-foreground/30 aspect-square flex items-center justify-center p-4 transition-colors duration-300 relative group overflow-hidden ${index % 5 === 0 ? 'border-l border-l-foreground/30' : ''}`}
+              className={`col-span-1 border-r border-b border-borderColor/30 aspect-square flex items-center justify-center p-4 transition-colors duration-300 relative group overflow-hidden ${index % 5 === 0 ? 'border-l border-l-borderColor/30' : ''}`}
             >
               {/* Corners */}
               <SquareCorner position="tl" />
@@ -171,7 +171,7 @@ export const TechStack = () => {
           </div>
 
           {/* Mobile Carousel */}
-          <div className="w-full aspect-square border border-foreground/30 relative flex flex-col items-center justify-center overflow-hidden">
+          <div className="w-full aspect-square border border-borderColor/30 relative flex flex-col items-center justify-center overflow-hidden">
              <SquareCorner position="tl" />
              <SquareCorner position="tr" />
              <SquareCorner position="bl" />
