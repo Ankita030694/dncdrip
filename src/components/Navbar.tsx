@@ -93,7 +93,7 @@ export const Navbar = () => {
        
         <div className="relative px-2 py-1">
           <Image 
-            src="/dnc-logo.png" 
+            src={mounted && theme === 'dark' ? "/dnc-logo.png" : "/dnc-logo-white.png"} 
             alt="DESIGNNCODE" 
             width={200} 
             height={60} 

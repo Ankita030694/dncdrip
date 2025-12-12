@@ -2,12 +2,12 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #1E7F5C;
+  --foreground: #1D2B64;
   --border-color: #2F9E44;
   --grid-bg: #ffffff;
   --card-bg: #f5f5f5;
-  --glow-start: rgba(0, 0, 0, 0.4);
-  --glow-mid: rgba(0, 0, 0, 0.1);
+  --glow-start: rgba(248, 205, 218, 0.8);
+  --glow-mid: rgba(248, 205, 218, 0.6);
   --mouse-x: 50vw;
   --mouse-y: 50vh;
 }
