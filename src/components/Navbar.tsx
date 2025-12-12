@@ -3,13 +3,33 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 
-const FlipLink = ({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) => {
+const FlipLink = ({ href, children, className = "", isSectionLink = false }: { href: string; children: React.ReactNode; className?: string; isSectionLink?: boolean }) => {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isSectionLink && pathname === '/contact') {
+      e.preventDefault();
+      // Navigate to home page first
+      router.push('/');
+      // Wait for navigation and page load, then scroll to section
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    }
+  };
+
   return (
     <Link
       href={href}
+      onClick={handleClick}
       className={`relative block overflow-hidden group ${className}`}
     >
       <div className="transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-full">
@@ -22,10 +42,32 @@ const FlipLink = ({ href, children, className = "" }: { href: string; children: 
 
 export const Navbar = () => {
   const { theme, setTheme } = useTheme();
+  const pathname = usePathname();
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const [scrolled, setScrolled] = useState(false);
+
+  const handleSectionLink = (hash: string) => {
+    if (pathname === '/contact') {
+      // Navigate to home page first
+      router.push('/');
+      // Wait for navigation and page load, then scroll to section
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    } else {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   // Avoid hydration mismatch
   useEffect(() => {
@@ -63,14 +105,17 @@ export const Navbar = () => {
 
       {/* Desktop Links Section */}
       <div className="pointer-events-auto hidden md:flex items-center gap-8 md:gap-12">
-        <FlipLink href="#tech-stack" className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
+        <FlipLink href="#tech-stack" isSectionLink={true} className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
           TECH STACK
         </FlipLink>
-        <FlipLink href="#clients" className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
+        <FlipLink href="#clients" isSectionLink={true} className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
           OUR CLIENTS
         </FlipLink>
-        <FlipLink href="#services" className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
+        <FlipLink href="#services" isSectionLink={true} className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
           WHAT WE DO
+        </FlipLink>
+        <FlipLink href="/contact" className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
+          CONTACT
         </FlipLink>
 
         {/* Theme Toggle Button */}
@@ -119,26 +164,30 @@ export const Navbar = () => {
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <Link 
-          href="#tech-stack" 
+        <button
+          onClick={() => handleSectionLink('#tech-stack')}
           className="text-foreground text-3xl font-medium tracking-wide"
-          onClick={() => setIsMobileMenuOpen(false)}
         >
           TECH STACK
-        </Link>
-        <Link 
-          href="#clients" 
+        </button>
+        <button
+          onClick={() => handleSectionLink('#clients')}
           className="text-foreground text-3xl font-medium tracking-wide"
-          onClick={() => setIsMobileMenuOpen(false)}
         >
           OUR CLIENTS
-        </Link>
+        </button>
+        <button
+          onClick={() => handleSectionLink('#services')}
+          className="text-foreground text-3xl font-medium tracking-wide"
+        >
+          WHAT WE DO
+        </button>
         <Link 
-          href="#services" 
+          href="/contact" 
           className="text-foreground text-3xl font-medium tracking-wide"
           onClick={() => setIsMobileMenuOpen(false)}
         >
-          WHAT WE DO
+          CONTACT
         </Link>
       </div>
     </nav>

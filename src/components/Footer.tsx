@@ -113,7 +113,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full min-h-screen bg-background text-foreground relative flex flex-col overflow-hidden pt-16 md:pt-24 pb-0">
+    <footer id="contact" className="w-full min-h-screen bg-background text-foreground relative flex flex-col overflow-hidden pt-16 md:pt-24 pb-0">
       
       <div className="w-full px-6 md:px-12 lg:px-24 relative z-10 flex-1 mb-12">
         <div className="flex flex-col lg:flex-row h-full">
