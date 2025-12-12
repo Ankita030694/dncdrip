@@ -92,15 +92,27 @@ export const Navbar = () => {
         {/* The 8 squares on the border */}
        
         <div className="relative px-2 py-1">
-          <Image 
-            src={mounted && theme === 'dark' ? "/dnc-logo.png" : "/dnc-logo-white.png"} 
-            alt="DESIGNNCODE" 
-            width={200} 
-            height={60} 
-            className="h-12 md:h-18 w-auto transition-colors duration-300 -mt-2"
-            priority
-            key={mounted ? theme : 'light'}
-          />
+          {mounted && theme === 'dark' ? (
+            <Image 
+              src="/dnc-logo.png" 
+              alt="DESIGNNCODE" 
+              width={200} 
+              height={60} 
+              className="h-12 md:h-18 w-auto transition-colors duration-300 -mt-2"
+              priority
+              unoptimized
+            />
+          ) : (
+            <Image 
+              src="/dnc-logo-white.png" 
+              alt="DESIGNNCODE" 
+              width={200} 
+              height={60} 
+              className="h-12 md:h-18 w-auto transition-colors duration-300 -mt-2"
+              priority
+              unoptimized
+            />
+          )}
         </div>
       </div>
 
