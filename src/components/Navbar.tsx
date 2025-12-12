@@ -99,6 +99,7 @@ export const Navbar = () => {
             height={60} 
             className="h-12 md:h-18 w-auto transition-colors duration-300 -mt-2"
             priority
+            key={mounted ? theme : 'light'}
           />
         </div>
       </div>

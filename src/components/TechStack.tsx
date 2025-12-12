@@ -134,7 +134,7 @@ export const TechStack = () => {
           {techStack.map((tech, index) => (
             <div 
               key={tech.name} 
-              className={`col-span-1 border-r border-b border-borderColor/30 aspect-square flex items-center justify-center p-4 transition-colors duration-300 relative group overflow-hidden ${index % 5 === 0 ? 'border-l border-l-borderColor/30' : ''}`}
+              className={`col-span-1 border-r border-b border-borderColor aspect-square flex items-center justify-center p-4 transition-colors duration-300 relative group overflow-hidden ${index % 5 === 0 ? 'border-l border-l-borderColor' : ''}`}
             >
               {/* Corners */}
               <SquareCorner position="tl" />
