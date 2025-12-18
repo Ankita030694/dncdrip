@@ -76,7 +76,8 @@ const SocialLink = ({
 export const Footer = () => {
   const [formData, setFormData] = useState({
     name: '',
-    contact: '',
+    email: '',
+    phone: '',
     project: '',
     serviceType: 'Website',
     timeline: '',
@@ -86,7 +87,21 @@ export const Footer = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    
+    let processedValue = value;
+    
+    if (name === 'name') {
+      // No numeric characters allowed in name
+      processedValue = value.replace(/[0-9]/g, '');
+    } else if (name === 'phone') {
+      // Only numeric values and max 10 digits
+      processedValue = value.replace(/\D/g, '').slice(0, 10);
+    } else if (name === 'timeline') {
+      // Only numeric values for weeks
+      processedValue = value.replace(/\D/g, '');
+    }
+
+    setFormData(prev => ({ ...prev, [name]: processedValue }));
   };
 
   const handleSubmit = async () => {
@@ -99,7 +114,7 @@ export const Footer = () => {
       });
       if (res.ok) {
         setStatus('success');
-        setFormData({ name: '', contact: '', project: '', serviceType: 'Website', timeline: '', details: '' });
+        setFormData({ name: '', email: '', phone: '', project: '', serviceType: 'Website', timeline: '', details: '' });
         alert('Message sent successfully!');
       } else {
         setStatus('error');
@@ -165,7 +180,7 @@ export const Footer = () => {
               <p className="mb-8">Hi Designncode Team,</p>
               
               <p className="mb-4 leading-loose">
-                I, <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="your name here" className="bg-transparent border-b border-borderColor/30 focus:border-borderColor outline-none w-40 text-center placeholder:text-foreground/40" /> want help kicking off a project. you can reach via <span className="inline-block text-foreground/60">{'{ Phone / Email }'}</span> at <input type="text" name="contact" value={formData.contact} onChange={handleChange} placeholder="_ _ _ _ _ _ _ _" className="bg-transparent border-b border-borderColor/30 focus:border-borderColor outline-none w-48 text-center placeholder:text-foreground/40" />
+                I, <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="your name here" className="bg-transparent border-b border-borderColor/30 focus:border-borderColor outline-none w-40 text-center placeholder:text-foreground/40" /> want help kicking off a project. you can reach via <span className="inline-block text-foreground/60">{'{ Email }'}</span> at <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="email@example.com" className="bg-transparent border-b border-borderColor/30 focus:border-borderColor outline-none w-48 text-center placeholder:text-foreground/40" /> and <span className="inline-block text-foreground/60">{'{ Phone }'}</span> at <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="10 digit number" className="bg-transparent border-b border-borderColor/30 focus:border-borderColor outline-none w-48 text-center placeholder:text-foreground/40" />
               </p>
 
               <p className="mb-4 leading-loose">

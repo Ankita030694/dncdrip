@@ -5,18 +5,19 @@ import { NextResponse } from 'next/server';
 export async function POST(request) {
   try {
     const data = await request.json();
-    const { name, contact, project, serviceType, timeline, details } = data;
+    const { name, email, phone, project, serviceType, timeline, details } = data;
 
-    if (!name || !contact) {
+    if (!name || !email || !phone) {
       return NextResponse.json(
-        { error: 'Name and contact are required' },
+        { error: 'Name, email, and phone are required' },
         { status: 400 }
       );
     }
 
     const docRef = await addDoc(collection(db, 'contacts'), {
       name,
-      contact,
+      email,
+      phone,
       project,
       serviceType,
       timeline,

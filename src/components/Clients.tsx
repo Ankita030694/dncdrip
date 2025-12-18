@@ -3,7 +3,12 @@
 import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
-const MobileClientsGrid = ({ logos }: { logos: string[] }) => {
+interface ClientLogo {
+  src: string;
+  link?: string;
+}
+
+const MobileClientsGrid = ({ logos }: { logos: ClientLogo[] }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const ITEMS_PER_PAGE = 8;
   const totalPages = Math.ceil(logos.length / ITEMS_PER_PAGE);
@@ -19,21 +24,37 @@ const MobileClientsGrid = ({ logos }: { logos: string[] }) => {
         key={currentPage}
         className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-right-8 duration-500 ease-out"
       >
-        {currentLogos.map((logo, index) => (
-          <div 
-            key={index} 
-            className="w-full h-24 flex items-center justify-center p-4 bg-white shadow-[7px_7px_18.2px_0_rgba(0,0,0,0.56)] rounded-[20px]"
-          >
+        {currentLogos.map((logo, index) => {
+          const content = (
             <div className="relative w-full h-full flex items-center justify-center">
               <img
-                src={logo}
+                src={logo.src}
                 alt="Client logo"
                 className="object-contain max-w-full max-h-full w-auto h-auto"
                 loading="lazy"
               />
             </div>
-          </div>
-        ))}
+          );
+
+          return logo.link ? (
+            <a
+              key={index}
+              href={logo.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full h-24 flex items-center justify-center p-4 bg-white shadow-[7px_7px_18.2px_0_rgba(0,0,0,0.56)] rounded-[20px] transition-all duration-300 hover:scale-105 block"
+            >
+              {content}
+            </a>
+          ) : (
+            <div 
+              key={index} 
+              className="w-full h-24 flex items-center justify-center p-4 bg-white shadow-[7px_7px_18.2px_0_rgba(0,0,0,0.56)] rounded-[20px]"
+            >
+              {content}
+            </div>
+          );
+        })}
       </div>
       
       <div className="flex items-center justify-center gap-6 mt-4">
@@ -59,23 +80,23 @@ const MobileClientsGrid = ({ logos }: { logos: string[] }) => {
   );
 };
 
-const clientLogos = [
-  "/clientlogo/1.png",
-  "/clientlogo/2.png",
-  "/clientlogo/3.png",
-  "/clientlogo/4.png",
-  "/clientlogo/5.png",
-  "/clientlogo/6.png",
-  "/clientlogo/7.png",
-  "/clientlogo/8.png",
-  "/clientlogo/9.png",
-  "/clientlogo/10.png",
-  "/clientlogo/11.png",
-  "/clientlogo/12.png",
-  "/clientlogo/13.png",
-  "/clientlogo/14.png",
-  "/clientlogo/15.png",
-  "/clientlogo/16.png"
+const clientLogos: ClientLogo[] = [
+  { src: "/clientlogo/1.png", link: "https://sexsea.in" },
+  { src: "/clientlogo/2.png", link: "https://anyadha.in" },
+  { src: "/clientlogo/3.png", link: "https://houseofkaa.com/" },
+  { src: "/clientlogo/4.png", link: "https://adornocasa.com/" },
+  { src: "/clientlogo/5.png", link: "https://kamalmotors.in/" },
+  { src: "/clientlogo/6.png", link: "https://tototerraa.com/" },
+  { src: "/clientlogo/7.png", link: "https://bloomcafes.com/" },
+  { src: "/clientlogo/8.png", link: "http://kichunstudio.com/" },
+  { src: "/clientlogo/9.png" },
+  { src: "/clientlogo/10.svg", link: "https://amalegalsolutions.com/" },
+  { src: "/clientlogo/11.png", link: "https://rockersjr.com/" },
+  { src: "/clientlogo/12.png", link: "https://foire.in/" },
+  { src: "/clientlogo/13.png", link: "http://delhihousecafe.com/" },
+  { src: "/clientlogo/14.png", link: "http://upstagecollect.com/" },
+  { src: "/clientlogo/15.png", link: "https://mamajama.in/" },
+  { src: "/clientlogo/16.svg", link: "https://www.credsettle.com/" }
 ];
 
 export const Clients = () => {
@@ -95,21 +116,37 @@ export const Clients = () => {
         {/* Logos Grid */}
         {/* Desktop Grid */}
         <div className="hidden md:grid grid-cols-4 gap-5">
-          {clientLogos.map((logo, index) => (
-            <div 
-              key={index} 
-              className="w-full h-24 md:h-36 flex items-center justify-center p-4 md:p-6 bg-white shadow-[7px_7px_18.2px_0_rgba(0,0,0,0.56)] rounded-[20px] border border-transparent dark:border-transparent transition-all duration-300 hover:scale-105"
-            >
+          {clientLogos.map((logo, index) => {
+            const content = (
               <div className="relative w-full h-full flex items-center justify-center">
                 <img
-                  src={logo}
+                  src={logo.src}
                   alt={`Client logo ${index + 1}`}
                   className="object-contain max-w-full max-h-full w-auto h-auto"
                   loading="lazy"
                 />
               </div>
-            </div>
-          ))}
+            );
+
+            return logo.link ? (
+              <a
+                key={index}
+                href={logo.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full h-24 md:h-36 flex items-center justify-center p-4 md:p-6 bg-white shadow-[7px_7px_18.2px_0_rgba(0,0,0,0.56)] rounded-[20px] border border-transparent dark:border-transparent transition-all duration-300 hover:scale-105 block"
+              >
+                {content}
+              </a>
+            ) : (
+              <div 
+                key={index} 
+                className="w-full h-24 md:h-36 flex items-center justify-center p-4 md:p-6 bg-white shadow-[7px_7px_18.2px_0_rgba(0,0,0,0.56)] rounded-[20px] border border-transparent dark:border-transparent transition-all duration-300 hover:scale-105"
+              >
+                {content}
+              </div>
+            );
+          })}
         </div>
 
         {/* Mobile Grid with Pagination */}
