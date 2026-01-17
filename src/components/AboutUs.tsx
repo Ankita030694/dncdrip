@@ -27,7 +27,7 @@ export const AboutUs = () => {
               I don’t just build websites… I craft digital experiences that look stunning, load fast, and actually convert. Whether it’s a brand-new startup or a business ready for a glow-up, I help ideas turn into scroll-stopping, pixel-perfect websites.
             </p>
             <p>
-              Think of me as your designer, developer, and creative partner — all rolled into one. From brainstorming wild ideas to turning them into sleek, functional websites, I make sure every project screams “this brand gets it!”
+              Think of me as your designer, developer, and creative partner all rolled into one. From brainstorming wild ideas to turning them into sleek, functional websites, I make sure every project screams “this brand gets it!”
             </p>
             <p>
               When I’m not designing or breaking things just to fix them better (guilty <span className="text-2xl">🤓</span>), you’ll find me exploring design trends, obsessing over animations, and hunting for that perfect font that changes everything.
