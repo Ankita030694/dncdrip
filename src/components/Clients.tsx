@@ -116,21 +116,21 @@ const clientLogos: ClientLogo[] = [
   { src: "/clientlogo/16.svg", link: "https://www.credsettle.com/" },
   
   // Other files from public/clientlogo (duplicates/alternatives)
-  { src: "/clientlogo/1.jpg" },
-  { src: "/clientlogo/2.jpg" },
-  { src: "/clientlogo/3.jpg" },
-  { src: "/clientlogo/4.jpg" },
-  { src: "/clientlogo/5.jpg" },
-  { src: "/clientlogo/6.jpg" },
-  { src: "/clientlogo/7.jpg" },
-  { src: "/clientlogo/8.jpg" },
-  { src: "/clientlogo/9.jpg" },
-  { src: "/clientlogo/10.jpg" },
-  { src: "/clientlogo/11.jpg" },
-  { src: "/clientlogo/12.jpg" },
-  { src: "/clientlogo/13.jpg" },
-  { src: "/clientlogo/14.jpg" },
-  { src: "/clientlogo/15.jpg" }
+  { src: "/clientlogo/1.jpg", link: "https://ruraltheory.in/" },
+  { src: "/clientlogo/2.jpg", link: "https://thefatcookiechef.com/" },
+  { src: "/clientlogo/3.jpg", link: "https://thecactistore.com/" },
+  { src: "/clientlogo/4.jpg", link: "https://vensaskincare.com/" },
+  { src: "/clientlogo/5.jpg", link: "https://dejabrew-wine.vercel.app/" },
+  { src: "/clientlogo/6.jpg", link: "https://purifi.in/" },
+  { src: "/clientlogo/7.jpg", link: "https://rproyal.com/" },
+  { src: "/clientlogo/8.jpg", link: "https://orotoronto.com/" },
+  { src: "/clientlogo/9.jpg", link: "https://bluewhiskk.com/" },
+  { src: "/clientlogo/10.jpg", link: "https://laysyy.com/" },
+  { src: "/clientlogo/11.jpg", link: "https://www.farzicafe.com/" },
+  { src: "/clientlogo/12.jpg", link: "https://aerolume.in/" },
+  { src: "/clientlogo/13.jpg", link: "https://www.bo-tai.co.in/" },
+  { src: "/clientlogo/14.jpg", link: "https://pureasvaa.com/" },
+  { src: "/clientlogo/15.jpg", link: "https://sunshine-laundry.com/" }
 ];
 
 export const Clients = () => {
