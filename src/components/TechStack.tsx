@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import Image from 'next/image';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const techStack = [
   { name: 'MongoDB', src: '/techlogo/6.png', color: '#47A248' },
@@ -74,16 +75,91 @@ const SquareCorner = ({ position }: { position: 'tl' | 'tr' | 'bl' | 'br' }) => 
   );
 };
 
+const MobileTechStackGrid = ({ techItems }: { techItems: typeof techStack }) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const ITEMS_PER_PAGE = 4; // 2x2 grid
+  const totalPages = Math.ceil(techItems.length / ITEMS_PER_PAGE);
+
+  const handlePrev = () => setCurrentPage(p => Math.max(0, p - 1));
+  const handleNext = () => setCurrentPage(p => Math.min(totalPages - 1, p + 1));
+
+  // Pre-calculate chunks
+  const pages = useMemo(() => {
+    const chunks = [];
+    for (let i = 0; i < techItems.length; i += ITEMS_PER_PAGE) {
+      chunks.push(techItems.slice(i, i + ITEMS_PER_PAGE));
+    }
+    return chunks;
+  }, [techItems]);
+
+  return (
+    <div className="flex md:hidden flex-col gap-6">
+      <div className="w-full overflow-hidden border-t border-l border-borderColor/30">
+        <div 
+          className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+          style={{ transform: `translateX(-${currentPage * 100}%)` }}
+        >
+          {pages.map((pageItems, pageIndex) => (
+            <div 
+              key={pageIndex}
+              className="min-w-full grid grid-cols-2 gap-0"
+            >
+              {pageItems.map((tech) => (
+                <div 
+                  key={tech.name} 
+                  className="col-span-1 border-r border-b border-borderColor/30 aspect-square flex items-center justify-center p-6 transition-colors duration-300 relative group overflow-hidden"
+                >
+                  {/* Corners */}
+                  <SquareCorner position="tl" />
+                  <SquareCorner position="tr" />
+                  <SquareCorner position="bl" />
+                  <SquareCorner position="br" />
+
+                  <div className="relative w-full h-full flex items-center justify-center z-10">
+                    <Image
+                      src={tech.src}
+                      alt={tech.name}
+                      width={100}
+                      height={100}
+                      className="object-contain opacity-100 grayscale-0 transition-transform duration-300 transform group-hover:scale-110"
+                      unoptimized
+                    />
+                  </div>
+                </div>
+              ))}
+              {/* Fill empty spots if last page has fewer than 4 items */}
+              {Array.from({ length: ITEMS_PER_PAGE - pageItems.length }).map((_, idx) => (
+                 <div key={`empty-${pageIndex}-${idx}`} className="col-span-1 border-r border-b border-borderColor/30 aspect-square"></div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <div className="flex items-center justify-center gap-6 mt-4">
+        <button 
+          onClick={handlePrev} 
+          disabled={currentPage === 0}
+          className="p-3 rounded-full bg-foreground text-background disabled:opacity-30 transition-opacity"
+        >
+          <FaArrowLeft />
+        </button>
+        <span className="text-foreground font-medium">
+          {currentPage + 1} / {totalPages}
+        </span>
+        <button 
+          onClick={handleNext} 
+          disabled={currentPage === totalPages - 1}
+          className="p-3 rounded-full bg-foreground text-background disabled:opacity-30 transition-opacity"
+        >
+          <FaArrowRight />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 export const TechStack = () => {
-  const [currentIndex, setCurrentIndex] = React.useState(0);
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % techStack.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div id="tech-stack" className="relative w-full min-h-screen bg-transparent text-foreground flex items-center justify-center px-4 md:px-24 py-24 z-10 transition-colors duration-300">
       <div className="w-full">
@@ -170,46 +246,8 @@ export const TechStack = () => {
             </h2>
           </div>
 
-          {/* Mobile Carousel */}
-          <div className="w-full aspect-square border border-borderColor/30 relative flex flex-col items-center justify-center overflow-hidden">
-             <SquareCorner position="tl" />
-             <SquareCorner position="tr" />
-             <SquareCorner position="bl" />
-             <SquareCorner position="br" />
-             
-             <div className="w-full h-full overflow-hidden relative">
-               <div 
-                 className="flex h-full transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1.0)]"
-                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-               >
-                 {techStack.map((tech, index) => (
-                   <div key={index} className="min-w-full h-full flex items-center justify-center p-12 flex-shrink-0">
-                     <Image
-                       src={tech.src}
-                       alt={tech.name}
-                       width={200}
-                       height={200}
-                       className="object-contain"
-                       unoptimized
-                     />
-                   </div>
-                 ))}
-               </div>
-             </div>
-             
-             {/* Progress Indicators */}
-             <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
-               {techStack.map((_, idx) => (
-                 <div 
-                   key={idx} 
-                   className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-6 bg-foreground' : 'w-1.5 bg-foreground/20'}`}
-                 />
-               ))}
-             </div>
-          </div>
-          <div className="mt-4 text-center text-sm font-medium tracking-widest text-foreground/60 h-6">
-            {techStack[currentIndex].name}
-          </div>
+          {/* Mobile Carousel Grid */}
+          <MobileTechStackGrid techItems={techStack} />
         </div>
 
       </div>

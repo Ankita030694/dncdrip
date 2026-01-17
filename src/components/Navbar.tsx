@@ -88,33 +88,24 @@ export const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 px-6 md:px-24 py-6 flex justify-between items-center pointer-events-none transition-all duration-500 ${scrolled ? 'bg-white/10 dark:bg-black/10 backdrop-blur-md' : 'bg-transparent'}`}>
       {/* Logo Section - Pointer events auto to allow interaction if needed, though it's just a logo */}
-      <div className="pointer-events-auto relative p-1 group transition-colors duration-300 z-50">
-        {/* The 8 squares on the border */}
-       
-        <div className="relative px-2 py-1">
-          {mounted && theme === 'dark' ? (
-            <Image 
-              src="/dnc-logo.png" 
-              alt="DESIGNNCODE" 
-              width={200} 
-              height={60} 
-              className="h-12 md:h-18 w-auto transition-colors duration-300 -mt-2"
-              priority
-              unoptimized
-            />
-          ) : (
-            <Image 
-              src="/dnc-logo-white.png" 
-              alt="DESIGNNCODE" 
-              width={200} 
-              height={60} 
-              className="h-12 md:h-18 w-auto transition-colors duration-300 -mt-2"
-              priority
-              unoptimized
-            />
-          )}
+      {/* Logo Section */}
+      <Link href="/" className="pointer-events-auto relative group transition-colors duration-300 z-50 block">
+        <div className="relative px-2 py-1 border border-foreground/30">
+          {/* Corner Squares */}
+          <div className="absolute -top-[3px] -left-[3px] w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
+          <div className="absolute -top-[3px] -right-[3px] w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
+          <div className="absolute -bottom-[3px] -left-[3px] w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
+          <div className="absolute -bottom-[3px] -right-[3px] w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
+          
+          {/* Middle Squares */}
+          <div className="absolute -top-[3px] left-1/2 -translate-x-1/2 w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
+          <div className="absolute -bottom-[3px] left-1/2 -translate-x-1/2 w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
+
+          <span className="text-xl md:text-3xl font-bold text-foreground transition-colors duration-300">
+            DESIGNNCODE
+          </span>
         </div>
-      </div>
+      </Link>
 
       {/* Desktop Links Section */}
       <div className="pointer-events-auto hidden md:flex items-center gap-8 md:gap-12">
