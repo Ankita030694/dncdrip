@@ -164,7 +164,7 @@ export const TechStack = () => {
     <div id="tech-stack" className="relative w-full min-h-screen bg-transparent text-foreground flex items-center justify-center px-4 md:px-24 py-24 z-10 transition-colors duration-300">
       <div className="w-full">
         <div className="text-foreground text-xs md:text-xl tracking-widest font-medium mb-4 transition-colors duration-300">
-          01 / TECH STACK
+          02 / TECH STACK
         </div>
 
         {/* Desktop Grid */}

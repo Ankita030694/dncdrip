@@ -41,7 +41,7 @@ export const Services = () => {
     <section id="services" className="w-full min-h-screen py-24 px-4 md:px-24 relative">
       {/* Section Number */}
       <div className="absolute top-8 left-4 md:left-24 text-foreground text-sm md:text-xl font-medium tracking-wider transition-colors duration-300">
-        03 / OUR SERVICES
+        04 / OUR SERVICES
       </div>
 
       <div className="flex flex-col gap-16 mt-12">
