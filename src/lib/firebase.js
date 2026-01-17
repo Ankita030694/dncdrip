@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 
 import { initializeApp, getApps, getApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 import { getFirestore } from "firebase/firestore";
 
@@ -42,3 +43,4 @@ if (typeof window !== 'undefined') {
   });
 }
 export const db = getFirestore(app);
+export const auth = getAuth(app);
