@@ -3,6 +3,7 @@ import { Anton } from "next/font/google";
 import "./globals.css";
 import { GridBackground } from "@/components/GridBackground";
 import { ThemeProvider } from "@/components/theme-provider";
+import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 
 const anton = Anton({
   weight: "400",
@@ -35,6 +36,7 @@ export default function RootLayout({
           <div className="relative z-10">
             {children}
           </div>
+          <WhatsAppWidget />
         </ThemeProvider>
       </body>
     </html>
