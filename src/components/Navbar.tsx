@@ -86,81 +86,82 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 px-6 md:px-24 py-6 flex justify-between items-center pointer-events-none transition-all duration-500 ${scrolled ? 'bg-white/10 dark:bg-black/10 backdrop-blur-md' : 'bg-transparent'}`}>
-      {/* Logo Section - Pointer events auto to allow interaction if needed, though it's just a logo */}
-      {/* Logo Section */}
-      <Link href="/" className="pointer-events-auto relative group transition-colors duration-300 z-50 block">
-        <div className="relative px-2 py-1 border border-foreground/30">
-          {/* Corner Squares */}
-          <div className="absolute -top-[3px] -left-[3px] w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
-          <div className="absolute -top-[3px] -right-[3px] w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
-          <div className="absolute -bottom-[3px] -left-[3px] w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
-          <div className="absolute -bottom-[3px] -right-[3px] w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
-          
-          {/* Middle Squares */}
-          <div className="absolute -top-[3px] left-1/2 -translate-x-1/2 w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
-          <div className="absolute -bottom-[3px] left-1/2 -translate-x-1/2 w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
+    <>
+      <nav className={`fixed top-0 left-0 w-full z-50 px-6 md:px-24 py-6 flex justify-between items-center transition-all duration-500 ${scrolled ? 'bg-white/10 dark:bg-black/10 backdrop-blur-md' : 'bg-transparent'}`}>
+        {/* Logo Section */}
+        <Link href="/" className="pointer-events-auto relative group transition-colors duration-300 z-50 block">
+          <div className="relative px-2 py-1 border border-foreground/30">
+            {/* Corner Squares */}
+            <div className="absolute -top-[3px] -left-[3px] w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
+            <div className="absolute -top-[3px] -right-[3px] w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
+            <div className="absolute -bottom-[3px] -left-[3px] w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
+            <div className="absolute -bottom-[3px] -right-[3px] w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
+            
+            {/* Middle Squares */}
+            <div className="absolute -top-[3px] left-1/2 -translate-x-1/2 w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
+            <div className="absolute -bottom-[3px] left-1/2 -translate-x-1/2 w-1.5 h-1.5 border border-foreground bg-background transition-colors duration-300"></div>
 
-          <span className="text-xl md:text-3xl font-bold text-foreground transition-colors duration-300">
-            DESIGNNCODE
-          </span>
+            <span className="text-xl md:text-3xl font-bold text-foreground transition-colors duration-300">
+              DESIGNNCODE
+            </span>
+          </div>
+        </Link>
+
+        {/* Desktop Links Section */}
+        <div className="pointer-events-auto hidden md:flex items-center gap-8 md:gap-12">
+          <FlipLink href="#tech-stack" isSectionLink={true} className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
+            TECH STACK
+          </FlipLink>
+          <FlipLink href="#clients" isSectionLink={true} className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
+            OUR CLIENTS
+          </FlipLink>
+          <FlipLink href="#services" isSectionLink={true} className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
+            WHAT WE DO
+          </FlipLink>
+          <FlipLink href="/contact" className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
+            CONTACT
+          </FlipLink>
+
+          {/* Theme Toggle Button */}
+          {mounted && (
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-foreground/10 transition-colors duration-300 focus:outline-none"
+              aria-label="Toggle Dark Mode"
+            >
+              {theme === 'dark' ? (
+                <FaSun className="text-foreground text-xl md:text-2xl transition-colors duration-300" />
+              ) : (
+                <FaMoon className="text-foreground text-xl md:text-2xl transition-colors duration-300" />
+              )}
+            </button>
+          )}
         </div>
-      </Link>
 
-      {/* Desktop Links Section */}
-      <div className="pointer-events-auto hidden md:flex items-center gap-8 md:gap-12">
-        <FlipLink href="#tech-stack" isSectionLink={true} className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
-          TECH STACK
-        </FlipLink>
-        <FlipLink href="#clients" isSectionLink={true} className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
-          OUR CLIENTS
-        </FlipLink>
-        <FlipLink href="#services" isSectionLink={true} className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
-          WHAT WE DO
-        </FlipLink>
-        <FlipLink href="/contact" className="text-foreground text-lg md:text-2xl tracking-wide font-medium transition-colors duration-300">
-          CONTACT
-        </FlipLink>
-
-        {/* Theme Toggle Button */}
-        {mounted && (
+        {/* Mobile Menu Toggle & Theme Toggle */}
+        <div className="pointer-events-auto md:hidden flex items-center gap-4 z-50">
+          {mounted && (
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-foreground/10 transition-colors duration-300 focus:outline-none"
+              aria-label="Toggle Dark Mode"
+            >
+              {theme === 'dark' ? (
+                <FaSun className="text-foreground text-xl transition-colors duration-300" />
+              ) : (
+                <FaMoon className="text-foreground text-xl transition-colors duration-300" />
+              )}
+            </button>
+          )}
           <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-foreground/10 transition-colors duration-300 focus:outline-none"
-            aria-label="Toggle Dark Mode"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-foreground text-2xl focus:outline-none"
+            aria-label="Toggle Mobile Menu"
           >
-            {theme === 'dark' ? (
-              <FaSun className="text-foreground text-xl md:text-2xl transition-colors duration-300" />
-            ) : (
-              <FaMoon className="text-foreground text-xl md:text-2xl transition-colors duration-300" />
-            )}
+            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
-        )}
-      </div>
-
-      {/* Mobile Menu Toggle & Theme Toggle */}
-      <div className="pointer-events-auto md:hidden flex items-center gap-4 z-50">
-        {mounted && (
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-foreground/10 transition-colors duration-300 focus:outline-none"
-            aria-label="Toggle Dark Mode"
-          >
-            {theme === 'dark' ? (
-              <FaSun className="text-foreground text-xl transition-colors duration-300" />
-            ) : (
-              <FaMoon className="text-foreground text-xl transition-colors duration-300" />
-            )}
-          </button>
-        )}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="text-foreground text-2xl focus:outline-none"
-          aria-label="Toggle Mobile Menu"
-        >
-          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-        </button>
-      </div>
+        </div>
+      </nav>
 
       {/* Mobile Menu Overlay */}
       <div
@@ -194,6 +195,7 @@ export const Navbar = () => {
           CONTACT
         </Link>
       </div>
-    </nav>
+    </>
+
   );
 };
