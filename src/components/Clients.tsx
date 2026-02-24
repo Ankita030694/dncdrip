@@ -99,9 +99,9 @@ const ClientsCarousel = ({
 const clientLogos: ClientLogo[] = [
   // Original logos with links
   { src: "/clientlogo/1.png", link: "https://sexsea.in" },
-  { src: "/clientlogo/2.png", link: "https://anyadha.in" },
+  { src: "/clientlogo/bunt_logo.png" },
   { src: "/clientlogo/3.png", link: "https://houseofkaa.com/" },
-  { src: "/clientlogo/4.png", link: "https://adornocasa.com/" },
+  { src: "/clientlogo/fat_cookie_logo.png", link: "https://thefatcookiechef.com/" },
   { src: "/clientlogo/5.png", link: "https://kamalmotors.in/" },
   { src: "/clientlogo/6.png", link: "https://tototerraa.com/" },
   { src: "/clientlogo/7.png", link: "https://bloomcafes.com/" },
@@ -130,7 +130,9 @@ const clientLogos: ClientLogo[] = [
   { src: "/clientlogo/12.jpg", link: "https://aerolume.in/" },
   { src: "/clientlogo/13.jpg", link: "https://www.bo-tai.co.in/" },
   { src: "/clientlogo/14.jpg", link: "https://pureasvaa.com/" },
-  { src: "/clientlogo/15.jpg", link: "https://sunshine-laundry.com/" }
+  { src: "/clientlogo/15.jpg", link: "https://sunshine-laundry.com/" },
+  { src: "/clientlogo/2.png", link: "https://anyadha.in" },
+  { src: "/clientlogo/4.png", link: "https://adornocasa.com/" }
 ];
 
 export const Clients = () => {
