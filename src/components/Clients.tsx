@@ -99,7 +99,7 @@ const ClientsCarousel = ({
 const clientLogos: ClientLogo[] = [
   // Original logos with links
   { src: "/clientlogo/1.png", link: "https://sexsea.in" },
-  { src: "/clientlogo/bunt_logo.png" },
+  { src: "/clientlogo/bunt_logo.png", link: "https://buntindia.com" },
   { src: "/clientlogo/3.png", link: "https://houseofkaa.com/" },
   { src: "/clientlogo/fat_cookie_logo.png", link: "https://thefatcookiechef.com/" },
   { src: "/clientlogo/5.png", link: "https://kamalmotors.in/" },
